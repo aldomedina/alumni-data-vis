@@ -20,6 +20,7 @@ export default function Grupos({
   mat = new THREE.Matrix4(),
   vec = new THREE.Vector3(),
   data,
+  isHighPerf,
   ...props
 }) {
   const active = useStore((state) => state.active);
@@ -80,8 +81,8 @@ export default function Grupos({
   return (
     <instancedUniformsMesh
       ref={ref}
-      castShadow
-      receiveShadow
+      castShadow={isHighPerf}
+      receiveShadow={isHighPerf}
       args={[geometry, material, data.length]}
     />
   );

@@ -38,8 +38,12 @@ const Scene = () => {
           <Environment files="/cyclorama_hard_light_2k.hdr" />{" "}
         </Suspense>
       ) : (
-        <ambientLight intensity={0.5} />
+        <>
+          <directionalLight position={[0, 5, 40]} intensity={2} />
+          <ambientLight intensity={1} />
+        </>
       )}
+
       <OrbitControls
         enablePan={false}
         maxPolarAngle={degToRad(130)}
@@ -49,7 +53,7 @@ const Scene = () => {
       />
       <Tags />
       <Physics gravity={[0, 2, 0]} iterations={10}>
-        <Grupos data={data} />
+        <Grupos data={data} isHighPerf={isHighPerf} />
         <Pointer />
       </Physics>
     </Canvas>
