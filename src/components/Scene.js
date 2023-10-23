@@ -3,6 +3,7 @@ import {
   OrbitControls,
   Environment,
   PerformanceMonitor,
+  AdaptiveDpr,
 } from "@react-three/drei";
 import { Physics } from "@react-three/cannon";
 import { degToRad } from "three/src/math/MathUtils";
@@ -51,6 +52,8 @@ const Scene = () => {
         maxAzimuthAngle={degToRad(50)}
         minAzimuthAngle={degToRad(-50)}
       />
+      <AdaptiveDpr pixelated />
+
       <Tags />
       <Physics gravity={[0, 2, 0]} iterations={10}>
         <Grupos data={data} isHighPerf={isHighPerf} />
