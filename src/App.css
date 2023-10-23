@@ -1,38 +1,51 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "proto";
+  font-style: normal;
+  font-weight: normal;
+  src: url(./assets/fonts/proto.woff2) format("woff2");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root,
+.wrapper {
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.wrapper {
+  background-color: rgb(255, 255, 255);
+  background-image: url(./assets/images/cruz.png);
+  background-repeat: repeat;
+  background-size: 3%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.tag {
+  font-family: proto;
+  user-select: none;
+  animation-duration: 0.3s;
+  animation-name: fadeIn;
+}
+.title {
+  background: #000;
   color: white;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  font-size: 4.5rem;
+  width: max-content;
 }
-
-.App-link {
-  color: #61dafb;
+.porc {
+  font-size: 10rem;
 }
-
-@keyframes App-logo-spin {
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    transform: translateY(80px);
+    opacity: 0;
   }
+
   to {
-    transform: rotate(360deg);
+    transform: translate3d(0);
+    opacity: 1;
   }
 }
