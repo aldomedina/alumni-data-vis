@@ -16,27 +16,30 @@ body,
 }
 
 .wrapper {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(29, 30, 32);
   background-image: url(./assets/images/cruz.png);
   background-repeat: repeat;
   background-size: 3%;
 }
 .tag {
   font-family: proto;
+  pointer-events: none;
   user-select: none;
   animation-duration: 0.3s;
   animation-name: fadeIn;
 }
 .title {
-  background: #000;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 999px;
   color: white;
-  padding: 1rem 2rem;
+  padding: 1rem 4rem;
   text-transform: uppercase;
   font-size: 4.5rem;
   width: max-content;
 }
 .porc {
   font-size: 10rem;
+  color: #fff;
 }
 @keyframes fadeIn {
   from {

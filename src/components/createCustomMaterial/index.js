@@ -1,8 +1,5 @@
-import { MeshStandardMaterial, Color } from "three";
-import { addToShader } from "../../utils";
-import { commonHeaders, fragmentShader } from "./shaders";
-
-import uniforms from "./uniforms";
+import { MeshStandardMaterial } from "three";
+import fragmentShader from "./fragmentShader";
 
 export default function createCustomMaterial() {
   const material = new MeshStandardMaterial({

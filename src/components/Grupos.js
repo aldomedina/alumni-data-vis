@@ -6,21 +6,24 @@ import { useSphere } from "@react-three/cannon";
 
 import useStore from "../store/app";
 import createCustomMaterial from "./createCustomMaterial";
-import { postgrados, pregrados } from "../data/references";
-import categorias from "../data/categorias";
+import categorias, { keys } from "../data/categorias";
+import data from "../data/data";
 
 const BALL_SIZE = 0.9;
-const rfs = THREE.MathUtils.randFloatSpread;
+const count = data.length;
 const geometry = new THREE.SphereGeometry(BALL_SIZE, 16, 16);
 const material = createCustomMaterial();
+const material_2 = new THREE.MeshStandardMaterial({
+  roughness: 0.7,
+  color: "#e29010",
+});
 
+const rfs = THREE.MathUtils.randFloatSpread;
 extend({ InstancedUniformsMesh });
 
 export default function Grupos({
   mat = new THREE.Matrix4(),
   vec = new THREE.Vector3(),
-  data,
-  isHighPerf,
   ...props
 }) {
   const active = useStore((state) => state.active);
@@ -34,8 +37,7 @@ export default function Grupos({
   }));
 
   useLayoutEffect(() => {
-    if (ref.current) {
-      const count = data.length;
+    if (ref.current && !!data.length) {
       const instancePregrado = new THREE.InstancedBufferAttribute(
         new Float32Array(count),
         1
@@ -44,33 +46,30 @@ export default function Grupos({
         new Float32Array(count),
         1
       );
-
       for (let i = 0; i < count; i++) {
-        const { postgrado, pregrado } = data[i];
-
-        instancePostgrado.array[i] = postgrados.findIndex(
-          (el) => el === postgrado
+        instancePostgrado.array[i] = keys.posgrado.findIndex(
+          (el) => el === data[i]["posgrado"]
         );
-        instancePregrado.array[i] = pregrados.findIndex(
-          (el) => el === pregrado
+        instancePregrado.array[i] = keys.pregrado.findIndex(
+          (el) => el === data[i]["pregrado"]
         );
       }
       geometry.setAttribute("postgrado", instancePostgrado);
       geometry.setAttribute("pregrado", instancePregrado);
     }
-  }, [data, ref]);
+  }, [ref]);
 
   useFrame(() => {
     for (let i = 0; i < data.length; i++) {
       const response = data[i][active];
       const attractionPoint = categorias[active].find(
-        (el) => el.tag === response
-      ).point;
+        (el) => String(el.tag).toLowerCase() === String(response).toLowerCase()
+      );
 
       ref.current.getMatrixAt(i, mat);
       const force = vec
         .setFromMatrixPosition(mat)
-        .sub(attractionPoint)
+        .sub(attractionPoint.point)
         .normalize()
         .multiplyScalar(-40)
         .toArray();
@@ -81,9 +80,9 @@ export default function Grupos({
   return (
     <instancedUniformsMesh
       ref={ref}
-      castShadow={isHighPerf}
-      receiveShadow={isHighPerf}
-      args={[geometry, material, data.length]}
+      castShadow
+      receiveShadow
+      args={[geometry, material_2, count]}
     />
   );
 }
