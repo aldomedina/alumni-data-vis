@@ -82,7 +82,7 @@ export default function Grupos({
       ref={ref}
       castShadow
       receiveShadow
-      args={[geometry, material_2, count]}
+      args={[geometry, material, count]}
     />
   );
 }
