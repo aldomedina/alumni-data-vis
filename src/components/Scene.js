@@ -5,6 +5,8 @@ import {
   Environment,
   PerformanceMonitor,
   AdaptiveDpr,
+  BakeShadows,
+  AdaptiveEvents,
 } from "@react-three/drei";
 import { Physics } from "@react-three/cannon";
 import { degToRad } from "three/src/math/MathUtils";
@@ -20,6 +22,7 @@ const Scene = () => {
       camera={{ position: [0, 0, 80], fov: 35, near: 1, far: 1000 }}
     >
       <AdaptiveDpr pixelated />
+      <AdaptiveEvents />
       <Suspense fallback={<ambientLight intensity={0.5} />}>
         <Environment files="/cyclorama_hard_light_2k.hdr" />{" "}
       </Suspense>
@@ -35,10 +38,13 @@ const Scene = () => {
       />
 
       <Tags />
-      <Physics gravity={[0, 2, 0]} iterations={10}>
-        <Grupos />
-        <Pointer />
-      </Physics>
+      <Suspense>
+        <Physics gravity={[0, 2, 0]} iterations={10}>
+          <Grupos />
+          <BakeShadows />
+          <Pointer />
+        </Physics>
+      </Suspense>
     </Canvas>
   );
 };
