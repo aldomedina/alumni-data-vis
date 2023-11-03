@@ -3,7 +3,8 @@ const coloresVibrantes = /*glsl*/ `
   vec3 col_1 = vec3(1.8, 0.5, 0.4);
   vec3 col_2 = vec3(0.2, 1.4, 2.2);
   vec3 col_3 = vec3(2.0, 1.5, 1.5);
-  vec3 col_4 = vec3(.50, 0.5, 2.25);
+  vec3 col_4 = vec3(1.5, 1.5, .0);
+  vec3 col_5 = vec3(.50, 0.5, 2.25);
 `;
 
 const coloresDesignLab = /*glsl*/ `
@@ -13,8 +14,15 @@ const coloresDesignLab = /*glsl*/ `
   vec3 col_4 = vec3(0.01,0.01,0.01);
   vec3 col_5 = vec3(.97, 0.55, 0.0);
 `;
+const coloresDesignLab2 = /*glsl*/ `
+  vec3 col_1 = vec3(.98, 0.653, 0.022);
+  vec3 col_2 = vec3(.98, 0.653, 0.022);
+  vec3 col_3 = vec3(.98, 0.653, 0.022);
+  vec3 col_4 = vec3(.98, 0.653, 0.022);
+  vec3 col_5 = vec3(1.5, 1.5, .0);
+`;
 
-const ACTIVE_COLOR = coloresDesignLab;
+const ACTIVE_COLOR = coloresDesignLab2;
 
 const fragmentShader = /*glsl*/ `
 vec3 fTexture = vec3(0.,0.,0.);

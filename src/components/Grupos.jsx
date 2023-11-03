@@ -15,7 +15,7 @@ const geometry = new THREE.SphereGeometry(BALL_SIZE, 16, 16);
 const material = createCustomMaterial();
 const material_2 = new THREE.MeshStandardMaterial({
   roughness: 0.7,
-  color: "#e29010",
+  color: "#4b4b4b",
 });
 
 const rfs = THREE.MathUtils.randFloatSpread;

@@ -1,14 +1,16 @@
 import React from "react";
-import useStore from "../../store/app";
-import { keys } from "../../data/categorias";
+
+import s from "./style.module.scss";
+import Dropdown from "./Dropdown";
 
 const UI = () => {
-  const updateActive = useStore((state) => state.updateActive);
-  const active = useStore((state) => state.active);
-
   return (
     <>
-      <select
+      <div className={s.logoWrapper}>
+        <div className={s.logo} />
+      </div>
+      <Dropdown />
+      {/* <select
         value={active}
         style={{ position: "fixed", top: 0 }}
         onChange={(el) => updateActive(el.target.value)}
@@ -18,7 +20,7 @@ const UI = () => {
             {key}
           </option>
         ))}
-      </select>
+      </select> */}
     </>
   );
 };

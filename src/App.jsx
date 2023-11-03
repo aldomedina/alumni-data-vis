@@ -1,12 +1,15 @@
 import Scene from "./components/Scene";
 import UI from "./components/UI";
 
-import "./App.css";
+import "./styles/App.css";
 
 function App() {
   return (
     <div className="wrapper">
-      <Scene />
+      <div className="bg"></div>
+      <div className="canvas">
+        <Scene />
+      </div>
       <UI />
     </div>
   );

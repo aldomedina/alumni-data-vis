@@ -3,7 +3,6 @@ import { Canvas } from "@react-three/fiber";
 import {
   OrbitControls,
   Environment,
-  PerformanceMonitor,
   AdaptiveDpr,
   BakeShadows,
   AdaptiveEvents,
