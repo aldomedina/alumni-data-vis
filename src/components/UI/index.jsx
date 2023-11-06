@@ -3,12 +3,17 @@ import React from "react";
 import s from "./style.module.scss";
 import Dropdown from "./Dropdown";
 
-const UI = () => {
+const UI = ({ openModal }) => {
   return (
     <>
       <div className={s.logoWrapper}>
         <div className={s.logo} />
       </div>
+
+      <div className={s.about} onClick={openModal}>
+        <span>?</span>
+      </div>
+
       <Dropdown />
       {/* <select
         value={active}

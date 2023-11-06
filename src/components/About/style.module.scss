@@ -1,0 +1,65 @@
+.title {
+  font-size: 2rem;
+  margin-bottom: 4rem;
+}
+.body {
+  font-size: 1rem;
+  line-height: 1.7;
+  font-family: "Inter", sans-serif;
+  .subtitle {
+    font-family: proto;
+  }
+}
+
+.tabla {
+  font-family: proto;
+  font-size: 0.8rem;
+  padding: 2rem;
+  background: #f2f1f1;
+  border-radius: 1rem;
+  .row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+  }
+  .separator {
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    margin-bottom: 1rem;
+  }
+}
+
+.ingcivil,
+.ingcom,
+.ingdis,
+.dis,
+.doble,
+.otro {
+  width: 50px;
+  height: 50px;
+}
+
+.ingcivil {
+  background-image: url(../../assets/icons/ingcivil.svg);
+}
+.ingcom {
+  background-image: url(../../assets/icons/ingcom.svg);
+}
+.ingdis {
+  background-image: url(../../assets/icons/ingdis.svg);
+}
+.dis {
+  background-image: url(../../assets/icons/dis.svg);
+}
+.doble {
+  background-image: url(../../assets/icons/doble.svg);
+}
+.otro {
+  background-image: url(../../assets/icons/otro.svg);
+}
+
+.blank {
+  height: 100px;
+}

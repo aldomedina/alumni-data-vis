@@ -1,0 +1,46 @@
+.wrapper {
+  position: fixed;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000000;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation-duration: 0.3s;
+  animation-name: fadeIn;
+  .modal {
+    height: 550px;
+    width: 70%;
+    max-width: 800px;
+    background-color: #fff;
+    box-shadow: 10px 10px 11px -8px rgba(0, 0, 0, 0.5);
+    padding: 1.5rem 4rem;
+    overflow-y: auto;
+    animation-duration: 0.3s;
+    animation-name: fadeInY;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInY {
+  from {
+    transform: translateY(80px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0);
+    opacity: 1;
+  }
+}
